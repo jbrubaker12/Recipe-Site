@@ -36,8 +36,8 @@ try {
     // Database connection parameters
     $host = '127.0.0.1'; // IP address
     $dbname = 'recipes'; // Database name
-    $user = 'if0_35000919'; // Replace with your database username
-    $pass = 'DfYM1aIbGE2MGX'; // Replace with your database password
+    $user = 'test'; // Replace with your database username
+    $pass = 'test'; // Replace with your database password
 
     // Create a new PDO instance
     $dbh = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
