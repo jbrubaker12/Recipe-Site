@@ -39,6 +39,7 @@
 
     <footer>
         <p>&copy; 2023 My Web Page</p>
-    </footer>
+        <p>test</p>
+    </footer
 </body>
 </html>
