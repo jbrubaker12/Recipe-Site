@@ -4,8 +4,8 @@ try {
     // Database connection parameters
     $host = '127.0.0.1'; // IP address
     $dbname = 'recipes'; // Database name
-    $user = 'if0_35000919'; //username
-    $pass = 'DfYM1aIbGE2MGX'; //password
+    $user = 'test'; //username
+    $pass = 'test'; //password
 
     // Create a new PDO instance
     $dbh = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
