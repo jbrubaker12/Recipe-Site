@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Entry Form</title>
+</head>
+<body>
+    <h2>Food Entry Form</h2>
+    <form action="process_food.php" method="POST" enctype="multipart/form-data">
+        <label for="food_name">Food Name:</label>
+        <input type="text" id="food_name" name="food_name" required><br><br>
+
+        <label>Meal Type:</label><br>
+        <input type="checkbox" id="breakfast" name="meal_type[]" value="breakfast">
+        <label for="breakfast">Breakfast</label><br>
+        <input type="checkbox" id="lunch" name="meal_type[]" value="lunch">
+        <label for="lunch">Lunch</label><br>
+        <input type="checkbox" id="dinner" name="meal_type[]" value="dinner">
+        <label for="dinner">Dinner</label><br>
+        <input type="checkbox" id="side" name="meal_type[]" value="side">
+        <label for="side">Side</label><br><br>
+
+        <label for="food_image">Food Image:</label>
+        <input type="file" id="food_image" name="food_image" accept="image/*" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
