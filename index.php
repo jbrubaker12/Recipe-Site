@@ -25,9 +25,6 @@
         
     </main>
 
-    <footer>
-        <p>&copy; 2023 My Web Page</p>
-</footer>
 </body>
 </html>
 
@@ -53,10 +50,18 @@ try {
 
     // Fetch all rows as an associative array
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // Print the results or process them as needed
     foreach ($result as $row) {
-        print_r($row);
+        echo $row['name'];
+        echo "<br>";
+        echo $row['meal_type'];
+        echo "<br>";
+        $imageData = $row['image'];
+        $base64Image = base64_encode($imageData);
+        $imageTag = '<img src="data:image/jpeg;base64,' . $base64Image . '" alt="Image">';
+        echo $imageTag;
+        echo "<br>";
+        echo "----------------------------------------------------------------";
+        echo "<br>";
     }
 
     // Close the database connection
