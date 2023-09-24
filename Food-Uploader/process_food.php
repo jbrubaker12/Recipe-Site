@@ -19,15 +19,25 @@ try {
     
     // Handle image upload
     $imageData = file_get_contents($_FILES['food_image']['tmp_name']);
+
+    // Handle Ingredients
+    $ingredients = isset($_POST["ingredients"]) ? $_POST["ingredients"] : [];
+
+    // Access the directions (as an array)
+    $directions = isset($_POST["directions"]) ? $_POST["directions"] : [];
     
     // SQL query to insert the data into the "foods" table
-    $sql = "INSERT INTO foods (name, meal_type, image) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO foods (name, meal_type, image, ingredients, directions) VALUES (?, ?, ?, ?, ?)";
 
     // Prepare and execute the query, binding the parameters
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(1, $food_name);
     $stmt->bindParam(2, $meal_types);
     $stmt->bindParam(3, $imageData, PDO::PARAM_LOB);
+    $serializedIngredients = serialize($ingredients);
+    $serializedDirections = serialize($directions);
+    $stmt->bindParam(4, $serializedIngredients);
+    $stmt->bindParam(5, $serializedDirections);
     $stmt->execute();
 
     // Close the database connection
