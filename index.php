@@ -60,8 +60,23 @@ try {
         $imageTag = '<img src="data:image/jpeg;base64,' . $base64Image . '" alt="Image">';
         echo $imageTag;
         echo "<br>";
+        // Unserialize and display ingredients
+        $ingredients = unserialize($row['ingredients']);
+        echo "Ingredients: <br>";
+        foreach ($ingredients as $ingredient) {
+            echo "- " . $ingredient . "<br>";
+        }
+        
+        // Unserialize and display directions
+        $directions = unserialize($row['directions']);
+        echo "Directions: <br>";
+        foreach ($directions as $direction) {
+            echo "- " . $direction . "<br>";
+        }
         echo "----------------------------------------------------------------";
         echo "<br>";
+
+
     }
 
     // Close the database connection

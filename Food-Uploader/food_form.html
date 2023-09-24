@@ -18,11 +18,77 @@
         <label for="dinner">Dinner</label><br>
         <input type="checkbox" id="side" name="meal_type[]" value="side">
         <label for="side">Side</label><br><br>
-
+        
         <label for="food_image">Food Image:</label>
         <input type="file" id="food_image" name="food_image" accept="image/*" required><br><br>
-
+        
+        <div id="ingredients">
+            <!-- Ingredient text boxes will be added here -->
+        </div>
+        
+        <button type="button" id="addIngredient">Add Ingredient</button>
+        <button type="button" id="removeIngredient">Remove Ingredient</button><br><br>
+        
+        <div id="directions">
+            <!-- Direction text boxes will be added here -->
+        </div>
+        
+        <button type="button" id="addDirection">Add Direction</button>
+        <button type="button" id="removeDirection">Remove Direction</button><br><br>
+        
         <input type="submit" value="Submit">
     </form>
+
+    <script>
+        // Initialize ingredient and direction counters
+        let ingredientCount = 0;
+        let directionCount = 0;
+
+        // Function to add a new ingredient text box
+        function addIngredientTextBox() {
+            ingredientCount++;
+            const ingredientDiv = document.createElement('div');
+            ingredientDiv.innerHTML = `<label for="ingredient_${ingredientCount}">Ingredient ${ingredientCount}:</label>
+                                       <input type="text" id="ingredient_${ingredientCount}" name="ingredients[]" required><br>`;
+            document.getElementById('ingredients').appendChild(ingredientDiv);
+        }
+
+        // Function to remove the last ingredient text box
+        function removeIngredientTextBox() {
+            if (ingredientCount > 0) {
+                const lastIngredient = document.getElementById(`ingredient_${ingredientCount}`);
+                if (lastIngredient) {
+                    lastIngredient.parentNode.remove();
+                    ingredientCount--;
+                }
+            }
+        }
+
+        // Function to add a new direction text box
+        function addDirectionTextBox() {
+            directionCount++;
+            const directionDiv = document.createElement('div');
+            directionDiv.innerHTML = `<label for="direction_${directionCount}">Direction ${directionCount}:</label>
+                                       <textarea id="direction_${directionCount}" name="directions[]" required></textarea><br>`;
+            document.getElementById('directions').appendChild(directionDiv);
+        }
+
+        // Function to remove the last direction text box
+        function removeDirectionTextBox() {
+            if (directionCount > 0) {
+                const lastDirection = document.getElementById(`direction_${directionCount}`);
+                if (lastDirection) {
+                    lastDirection.parentNode.remove();
+                    directionCount--;
+                }
+            }
+        }
+
+        // Attach click event handlers to the add and remove buttons for ingredients and directions
+        document.getElementById('addIngredient').addEventListener('click', addIngredientTextBox);
+        document.getElementById('removeIngredient').addEventListener('click', removeIngredientTextBox);
+        document.getElementById('addDirection').addEventListener('click', addDirectionTextBox);
+        document.getElementById('removeDirection').addEventListener('click', removeDirectionTextBox);
+    </script>
 </body>
 </html>

@@ -69,3 +69,19 @@ try {
         <p>Food Type: <?php echo $randomFood['meal_type']; ?></p>
     </body>
 </html>
+
+<?php
+// Unserialize and display ingredients
+$ingredients = unserialize($randomFood['ingredients']);
+echo "Ingredients: <br>";
+foreach ($ingredients as $ingredient) {
+    echo "- " . $ingredient . "<br>";
+}
+
+// Unserialize and display directions
+$directions = unserialize($randomFood['directions']);
+echo "Directions: <br>";
+foreach ($directions as $direction) {
+    echo "- " . $direction . "<br>";
+}
+?>
